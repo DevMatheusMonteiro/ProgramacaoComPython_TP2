@@ -1,1 +1,2 @@
-dicionario1 = {1,2,3,5}
+dicionario1 = {'times': ["Flamengo", "Vasco", "Botafogo", "Fluminense"]}
+print('times' in dicionario1)
