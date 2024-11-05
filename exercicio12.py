@@ -1,3 +1,4 @@
+import random
 def entrarNomeFruta():
     while(True):
         nome = input("Entre com o nome da fruta (digite \"fim\" para encerrar): ")
@@ -9,7 +10,7 @@ def entrarNomeFruta():
 def entrarQuantidadeFruta():
     while(True):
         try:
-            quantidade = int(input("Entre com a quantidade da fruta (digite \"0\" para encerrar: )"))
+            quantidade = int(input("Entre com a quantidade da fruta (digite \"0\" para encerrar): "))
             return quantidade
         except:
             print("Erro: número inválido!")
@@ -41,11 +42,11 @@ def criarListas():
         quantidades = criarListaQuantidades()
     return (frutas, quantidades)
 
+def sortearFruta(frutas,quantidades):
+    aleatorio = random.randint(0, (len(frutas)-1))
+    quantidades[aleatorio] -= 1
+    return frutas[aleatorio]
+
 (frutas,quantidades) = criarListas()
-print(frutas)
-print(quantidades)
-
-
-
-
-
+frutaSorteada = sortearFruta(frutas, quantidades)
+print(f"A fruta sorteada é: {frutaSorteada}")
