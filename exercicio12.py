@@ -1,36 +1,41 @@
 import random
 def entrarNomeFruta():
-    while(True):
-        nome = input("Entre com o nome da fruta (digite \"fim\" para encerrar): ")
-        if(nome.strip() == ""):
-            print("Erro: nome inválido!")
-        else:
-            return nome
+        return input("Entre com as frutas separadas por vírgula: ")
 
 def entrarQuantidadeFruta():
-    while(True):
-        try:
-            quantidade = int(input("Entre com a quantidade da fruta (digite \"0\" para encerrar): "))
-            return quantidade
-        except:
-            print("Erro: número inválido!")
+        return input("Entre com as quantidades separadas por vírgula: ")
+        
 
 def criarListaFrutas():
-    frutas = []
-    nome = entrarNomeFruta()
-    FIM = "fim"
-    while(nome.lower() != FIM):
-        frutas.append(nome)
-        nome = entrarNomeFruta()
+    erro = True
+    while(erro):
+        listaNomes = entrarNomeFruta()
+        frutas = listaNomes.split(",")
+        for i in range(len(frutas)):
+            nome = frutas[i].strip()
+            if(nome == ""):
+                print("Erro: campo nome vazio! Refaça a lista.")
+                break
+            if (i == len(frutas)-1):
+                 erro = False
+            frutas[i] = nome
     return frutas
 
+
 def criarListaQuantidades():
-    quantidades = []
-    quantidade = entrarQuantidadeFruta()
-    FIM = 0
-    while(quantidade != FIM):
-        quantidades.append(quantidade)
-        quantidade = entrarQuantidadeFruta()
+    erro = True
+    while(erro):
+        listaQuantidades = entrarQuantidadeFruta()
+        quantidades = listaQuantidades.split(",")
+        for i in range(len(quantidades)):
+            try: 
+                quantidade = int(quantidades[i].strip())
+                if (i == len(quantidades)-1):
+                    erro = False
+                quantidades[i] = quantidade
+            except:
+                 print("Erro: número inválido! Refaça a lista")
+                 break
     return quantidades
 
 def criarListas():
