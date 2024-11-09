@@ -16,8 +16,8 @@ def dividir():
     Retorna uma tupla contendo o dividendo, divisor, quociente e resto
     """
     while True:
-        dividendo = entrarNumero("Informe o dividendo:")
-        divisor = entrarNumero("Informe o divisor:")
+        dividendo = entrarNumero("Informe o dividendo: ")
+        divisor = entrarNumero("Informe o divisor: ")
         if divisor == 0:
             print("Erro: divisor não pode ser 0.")
         else:
